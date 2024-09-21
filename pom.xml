@@ -6,7 +6,7 @@
 
   <groupId>com.github.shubhammali929</groupId>
   <artifactId>mylibrary</artifactId>
-  <version>1.7</version>
+  <version>1.8</version>
   <packaging>pom</packaging>
   <description>First library</description>
 
