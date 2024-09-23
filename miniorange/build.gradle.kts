@@ -45,3 +45,34 @@ dependencies {
     api("org.bouncycastle:bcprov-jdk15on:1.70")
 
 }
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                artifact("$buildDir/outputs/aar/miniorange-release.aar")
+
+                groupId = "com.github.shubhammali929"
+                artifactId = "miniorange"
+                version = "1.9"
+
+                // Include dependencies in the POM file
+                pom {
+                    withXml {
+                        asNode().appendNode("dependencies").apply {
+                            configurations.implementation.get().dependencies.forEach { dep ->
+                                appendNode("dependency").apply {
+                                    appendNode("groupId", dep.group)
+                                    appendNode("artifactId", dep.name)
+                                    appendNode("version", dep.version)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    tasks.named("publishReleasePublicationToMavenLocal") {
+        dependsOn(tasks.named("bundleReleaseAar"))
+    }
+}
