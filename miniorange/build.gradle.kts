@@ -25,8 +25,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 }
 
@@ -41,8 +41,8 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
-    api("com.android.volley:volley:1.2.1")
-    api("org.bouncycastle:bcprov-jdk15on:1.70")
+    implementation("com.android.volley:volley:1.2.1")
+    implementation("org.bouncycastle:bcprov-jdk15on:1.70")
 
 }
 afterEvaluate {
