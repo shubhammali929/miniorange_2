@@ -53,7 +53,7 @@ afterEvaluate {
 
                 groupId = "com.github.shubhammali929"
                 artifactId = "miniorange"
-                version = "2.1"
+                version = "2.2"
 
                 // Include dependencies in the POM file
                 pom {
